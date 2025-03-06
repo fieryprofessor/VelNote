@@ -1,9 +1,10 @@
-import React from 'react'
-
+import Notes from './Notes';
+ 
 export default function Home() {
+  
   return (
     <div>
-        <p>This is Home Component</p>
+     <Notes/>
     </div>
   );
 }
