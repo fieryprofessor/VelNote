@@ -13,7 +13,7 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjNDczMzkxY2QyZWUyM2JkNzcwMjYzIn0sImlhdCI6MTc0MTI0NjQ3N30.CFY9HV5q3KHy8wVWQ0t8j1brUvJMmHyPDf3q04XggNc"
+        "auth-token": localStorage.getItem("token")
       }
     });
     const json = await response.json();
@@ -28,7 +28,7 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjNDczMzkxY2QyZWUyM2JkNzcwMjYzIn0sImlhdCI6MTc0MTI0NjQ3N30.CFY9HV5q3KHy8wVWQ0t8j1brUvJMmHyPDf3q04XggNc"
+        "auth-token": localStorage.getItem("token")
       },
       body: JSON.stringify({title, description, tag})
     });
@@ -44,11 +44,11 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjNDczMzkxY2QyZWUyM2JkNzcwMjYzIn0sImlhdCI6MTc0MTI0NjQ3N30.CFY9HV5q3KHy8wVWQ0t8j1brUvJMmHyPDf3q04XggNc"
+        "auth-token": localStorage.getItem("token")
       }
     });
     const json = response.json();
-
+    console.log(json);
     const newNotes = notes.filter((note) => { return note._id !== id })
     setNotes(newNotes)
   }
@@ -60,11 +60,12 @@ const NoteState = (props) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjdjNDczMzkxY2QyZWUyM2JkNzcwMjYzIn0sImlhdCI6MTc0MTI0NjQ3N30.CFY9HV5q3KHy8wVWQ0t8j1brUvJMmHyPDf3q04XggNc"
+        "auth-token": localStorage.getItem("token")
       },
       body: JSON.stringify({title, description, tag})
     });
-    const json = await response.json();
+    const json = response.json();
+    console.log(json);
 
     let newNotes = JSON.parse(JSON.stringify(notes));
     // Logic to edit in client

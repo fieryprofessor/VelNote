@@ -18,18 +18,19 @@ function App() {
     })
     setTimeout(() => {
         setAlert(null);
-    }, 1500);
+    }, 2000);
 }
 
   return (
     <>
       <NoteState>
         <Router>
-          <NavBar />
+          <NavBar showAlert={showAlert}/>
           <Alert alert={alert} />
           <div className="container">
             <Routes>
-              <Route path="/" element={<Home showAlert={showAlert}/>} />
+            <Route path="/" element={<About />} />
+              <Route path="/home" element={<Home showAlert={showAlert}/>} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login showAlert={showAlert}/>} />
               <Route path="/signup" element={<Signup showAlert={showAlert}/>} />
