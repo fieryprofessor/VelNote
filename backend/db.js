@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongoURI = "mongodb://localhost:27017/velnote?directConnection=true&tls=false&readPreference=primary";
+const mongoURI = "mongodb+srv://ninjaplays792020:letsgowithatlas@omsinghatlas.wi2ab.mongodb.net/velnote";
 
 const connectToMongo =  () => {
         mongoose.connect(mongoURI);  
